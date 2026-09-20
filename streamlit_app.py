@@ -263,14 +263,14 @@ div[data-testid="stFileUploader"] {
 </style>
 """
 
-_streamlit_markdown = st.markdown
-
 def render_html(content, *args, **kwargs):
+    """Render Streamlit markdown safely without monkey-patching st.markdown."""
     if isinstance(content, str):
         content = textwrap.dedent(content).strip()
-    return _streamlit_markdown(content, *args, **kwargs)
+    return st.markdown(content, *args, **kwargs)
 
-render_html(CSS, unsafe_allow_html=True)
+
+st.markdown(CSS, unsafe_allow_html=True)
 
 
 # ============================================================
