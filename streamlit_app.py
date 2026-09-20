@@ -1,4 +1,5 @@
 import os
+import html
 import requests
 import streamlit as st
 
@@ -11,622 +12,1111 @@ st.set_page_config(
 
 API_URL = os.getenv("SKILLPATH_API_URL", "").rstrip("/")
 
-# ---------- Theme ----------
-st.markdown(
-    """
+
+# ============================================================
+# UI / CSS
+# ============================================================
+CSS = """
 <style>
-:root {
-    --bg: #f5f7f2;
-    --panel: #ffffff;
-    --ink: #172018;
-    --muted: #68736b;
-    --green: #176b4d;
-    --green2: #23845f;
-    --soft: #e9f3ed;
-    --line: #dfe7e1;
-    --orange: #e98b42;
+.stApp {
+    background: #f7f8fc;
 }
 
-.stApp { background: var(--bg); color: var(--ink); }
-.block-container { max-width: 1250px; padding-top: 1.5rem; padding-bottom: 4rem; }
+.block-container {
+    max-width: 1180px;
+    padding-top: 1.8rem;
+    padding-bottom: 4rem;
+}
 
 [data-testid="stSidebar"] {
-    background: #123b2c;
+    background: #111827;
 }
-[data-testid="stSidebar"] * { color: #eef8f1 !important; }
 
-.brand {
-    padding: 8px 4px 24px 4px;
+[data-testid="stSidebar"] * {
+    color: #f8fafc !important;
 }
-.brand-name {
-    font-size: 25px;
-    font-weight: 900;
-    letter-spacing: -.7px;
-}
-.brand-sub {
-    color: #b8d8c5;
-    font-size: 12px;
-    margin-top: 4px;
+
+[data-testid="stSidebar"] input {
+    color: #111827 !important;
+    background: white !important;
 }
 
 .hero {
-    background: linear-gradient(115deg, #153f30 0%, #1e6a4d 58%, #2c8b63 100%);
+    padding: 42px;
     border-radius: 28px;
-    padding: 42px 44px;
     color: white;
-    box-shadow: 0 20px 50px rgba(19,70,48,.18);
+    background:
+        radial-gradient(circle at 90% 10%, rgba(255,255,255,.16), transparent 30%),
+        linear-gradient(135deg, #111827 0%, #3730a3 55%, #6d28d9 100%);
+    margin-bottom: 26px;
+    box-shadow: 0 20px 50px rgba(49,46,129,.20);
 }
-.eyebrow {
-    color: #bce8ce;
+
+.hero-label {
+    color: #c7d2fe;
     font-size: 12px;
-    font-weight: 900;
+    font-weight: 800;
     letter-spacing: 2px;
     text-transform: uppercase;
 }
-.hero h1 {
-    font-size: 46px;
-    line-height: 1.04;
+
+.hero-title {
+    font-size: 44px;
+    line-height: 1.06;
+    font-weight: 850;
     margin: 10px 0 12px;
-    letter-spacing: -1.5px;
 }
-.hero p {
-    max-width: 720px;
-    color: #e3f4e9;
+
+.hero-text {
+    max-width: 760px;
+    color: #e0e7ff;
     font-size: 16px;
     line-height: 1.65;
 }
 
-.section {
-    font-size: 24px;
+.section-title {
+    font-size: 25px;
     font-weight: 850;
-    margin: 30px 0 12px;
-    color: var(--ink);
+    color: #111827;
+    margin: 28px 0 13px;
 }
-.subtle { color: var(--muted); font-size: 14px; }
 
-.card {
-    background: var(--panel);
-    border: 1px solid var(--line);
-    border-radius: 20px;
-    padding: 22px;
-    box-shadow: 0 8px 26px rgba(21,44,31,.05);
+.section-subtitle {
+    color: #64748b;
+    font-size: 14px;
+    margin-top: -7px;
+    margin-bottom: 15px;
 }
-.card-title { font-size: 18px; font-weight: 850; }
-.card-muted { color: var(--muted); font-size: 13px; margin-top: 5px; }
 
 .metric {
     background: white;
-    border: 1px solid var(--line);
+    border: 1px solid #e5e7eb;
     border-radius: 18px;
     padding: 19px;
+    min-height: 105px;
+    box-shadow: 0 7px 22px rgba(15,23,42,.05);
 }
-.metric-value { font-size: 30px; font-weight: 900; color: var(--green); }
-.metric-label { color: var(--muted); font-size: 12px; margin-top: 3px; }
+
+.metric-number {
+    color: #4338ca;
+    font-size: 30px;
+    font-weight: 850;
+}
+
+.metric-label {
+    color: #64748b;
+    font-size: 13px;
+    margin-top: 4px;
+}
 
 .job {
     background: white;
-    border: 1px solid var(--line);
-    border-radius: 20px;
+    border: 1px solid #e5e7eb;
+    border-radius: 18px;
     padding: 20px;
-    margin-bottom: 12px;
+    margin-bottom: 13px;
+    box-shadow: 0 6px 20px rgba(15,23,42,.04);
 }
-.job-title { font-size: 18px; font-weight: 850; }
-.job-company { color: var(--muted); font-size: 13px; margin-top: 4px; }
-.score { color: var(--green); font-size: 27px; font-weight: 900; }
+
+.job-title {
+    font-size: 18px;
+    font-weight: 800;
+    color: #111827;
+}
+
+.job-meta {
+    color: #64748b;
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+.job-score {
+    color: #4f46e5;
+    font-size: 25px;
+    font-weight: 850;
+    text-align: right;
+}
 
 .progress {
-    background: #e7eee9;
     height: 8px;
-    border-radius: 99px;
+    background: #e5e7eb;
+    border-radius: 20px;
     overflow: hidden;
+    margin-top: 15px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg,#4f46e5,#7c3aed);
+}
+
+.chip {
+    display: inline-block;
+    background: #eef2ff;
+    color: #3730a3;
+    border: 1px solid #c7d2fe;
+    border-radius: 999px;
+    padding: 6px 11px;
+    margin: 3px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.gap-card {
+    background: linear-gradient(135deg,#fff7ed,#ffffff);
+    border: 1px solid #fed7aa;
+    border-radius: 17px;
+    padding: 17px;
+    min-height: 92px;
+    box-shadow: 0 5px 17px rgba(15,23,42,.035);
+}
+
+.gap-title {
+    color: #c2410c;
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.gap-text {
+    color: #64748b;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.course {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 18px;
+    padding: 19px;
+    min-height: 245px;
+    box-shadow: 0 6px 18px rgba(15,23,42,.04);
+}
+
+.course-category {
+    color: #6366f1;
+    font-size: 11px;
+    font-weight: 850;
+    text-transform: uppercase;
+    letter-spacing: .7px;
+}
+
+.course-name {
+    color: #111827;
+    font-size: 18px;
+    line-height: 1.3;
+    font-weight: 850;
+    margin-top: 8px;
+}
+
+.course-provider {
+    color: #64748b;
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+.course-info {
+    color: #475569;
+    font-size: 12px;
     margin-top: 13px;
 }
-.progress > div {
-    height: 100%;
-    background: linear-gradient(90deg, var(--green), var(--green2));
+
+.course-skills {
+    margin-top: 10px;
 }
 
-.chip, .gap {
-    display: inline-block;
-    border-radius: 999px;
-    padding: 6px 10px;
-    margin: 3px 4px 3px 0;
-    font-size: 12px;
+.profile-card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 20px;
+    padding: 22px;
+    box-shadow: 0 7px 22px rgba(15,23,42,.04);
+}
+
+.source-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 13px;
+    margin-bottom: 8px;
+    color: #334155;
+    font-size: 13px;
+}
+
+.stButton > button {
+    border-radius: 12px;
     font-weight: 750;
 }
-.chip { background: #eaf4ee; color: #176b4d; border: 1px solid #cfe5d8; }
-.gap { background: #fff2e8; color: #a9561d; border: 1px solid #f4d3bc; }
 
-.sim {
-    background: linear-gradient(135deg, #edf7f0, #f9f5eb);
-    border: 1px solid #d8e7dc;
-    border-radius: 22px;
-    padding: 25px;
-}
-.sim-title { font-size: 22px; font-weight: 900; color: #173c2c; }
-
-.trace {
-    background: #14271e;
-    color: #d7f3e0;
-    border-radius: 17px;
-    padding: 18px;
-    font-family: monospace;
-    font-size: 12px;
+div[data-testid="stFileUploader"] {
+    border-radius: 15px;
 }
 
-div.stButton > button {
-    border-radius: 12px;
-    font-weight: 800;
-    min-height: 45px;
+@media (max-width: 800px) {
+    .hero-title {
+        font-size: 34px;
+    }
+    .hero {
+        padding: 28px;
+    }
 }
 </style>
-""",
-    unsafe_allow_html=True,
-)
+"""
 
-# ---------- Helpers ----------
-def api_request(method, path, **kwargs):
-    if not API_URL:
-        return None, "Backend URL is not configured."
+st.markdown(CSS, unsafe_allow_html=True)
+
+
+# ============================================================
+# Helpers
+# ============================================================
+def safe_text(value):
+    """Convert values to display-safe HTML text."""
+    return html.escape(str(value))
+
+
+def score_value(job):
     try:
-        response = requests.request(
-            method,
-            f"{API_URL}{path}",
-            timeout=180,
-            **kwargs,
-        )
-        if response.ok:
-            return response.json(), None
-        return None, f"HTTP {response.status_code}: {response.text}"
-    except requests.RequestException as exc:
-        return None, str(exc)
+        return float(job.get("match_score", job.get("score", 0)))
+    except (TypeError, ValueError):
+        return 0.0
 
 
-def show_chips(items, cls="chip"):
+def show_chips(items):
+    """Render a clean list of skill chips."""
     if not items:
         return
-    html = "".join(
-        f'<span class="{cls}">{str(x)}</span>' for x in items
+
+    cleaned = []
+    for item in items:
+        if isinstance(item, dict):
+            item = (
+                item.get("skill")
+                or item.get("name")
+                or item.get("title")
+                or ""
+            )
+
+        item = str(item).strip()
+
+        if item and item not in cleaned:
+            cleaned.append(item)
+
+    if not cleaned:
+        return
+
+    html_items = "".join(
+        f'<span class="chip">{safe_text(item)}</span>'
+        for item in cleaned
     )
-    st.markdown(html, unsafe_allow_html=True)
+
+    st.markdown(html_items, unsafe_allow_html=True)
 
 
-def job_score(job):
-    try:
-        return max(0, min(100, float(
-            job.get("match_score", job.get("score", 0))
-        )))
-    except (TypeError, ValueError):
-        return 0
+def flatten_courses(courses):
+    """
+    Convert backend course structure into:
+    [(category, course_dict), ...]
+    """
+    output = []
 
-
-def course_items(courses):
-    result = []
     if not isinstance(courses, dict):
-        return result
+        return output
+
     for category, values in courses.items():
+
         if isinstance(values, list):
             for value in values:
-                result.append((category, value))
+                output.append((category, value))
         else:
-            result.append((category, values))
-    return result
+            output.append((category, values))
+
+    return output
 
 
-# ---------- Sidebar ----------
-with st.sidebar:
+def extract_gap_items(gaps):
+    """Flatten and clean the backend skill-gap structure."""
+    items = []
+
+    if isinstance(gaps, dict):
+        for key, value in gaps.items():
+
+            if isinstance(value, list):
+                candidates = value
+            else:
+                candidates = [value]
+
+            for item in candidates:
+
+                if isinstance(item, dict):
+                    item = (
+                        item.get("skill")
+                        or item.get("name")
+                        or item.get("title")
+                        or key
+                    )
+
+                if item:
+                    item = str(item).strip()
+
+                    if item and item not in items:
+                        items.append(item)
+
+    elif isinstance(gaps, list):
+        for item in gaps:
+            if isinstance(item, dict):
+                item = (
+                    item.get("skill")
+                    or item.get("name")
+                    or item.get("title")
+                    or ""
+                )
+
+            if item:
+                item = str(item).strip()
+                if item and item not in items:
+                    items.append(item)
+
+    elif gaps:
+        items.append(str(gaps).strip())
+
+    return items
+
+
+def course_field(course, key, default=""):
+    if isinstance(course, dict):
+        return course.get(key, default)
+    return default
+
+
+def render_course(category, course):
+    """Render one course as a proper UI card."""
+    if not isinstance(course, dict):
+        st.markdown(
+            f"""
+            <div class="course">
+                <div class="course-category">{safe_text(category)}</div>
+                <div class="course-name">{safe_text(course)}</div>
+                <div class="course-provider">
+                    Recommended learning resource
+                </div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+        return
+
+    title = course_field(course, "title", "Recommended course")
+    provider = course_field(
+        course,
+        "provider",
+        "Open Learning Catalog",
+    )
+    duration = course_field(course, "duration_weeks", "?")
+    cost = course_field(course, "cost", 0)
+    level = course_field(course, "level", "All levels")
+    skills = course_field(course, "skills", [])
+
+    if cost in (0, "0", None, ""):
+        cost_text = "Free"
+    else:
+        cost_text = f"₹{cost}"
+
+    skill_html = ""
+
+    if isinstance(skills, list):
+        skill_html = "".join(
+            f'<span class="chip">{safe_text(skill)}</span>'
+            for skill in skills[:5]
+        )
+
     st.markdown(
-        """
-        <div class="brand">
-            <div class="brand-name">SkillPath AI</div>
-            <div class="brand-sub">AI-powered career intelligence</div>
+        f"""
+        <div class="course">
+            <div class="course-category">
+                {safe_text(category)}
+            </div>
+
+            <div class="course-name">
+                {safe_text(title)}
+            </div>
+
+            <div class="course-provider">
+                {safe_text(provider)}
+            </div>
+
+            <div class="course-info">
+                <b>{safe_text(level)}</b>
+                &nbsp; • &nbsp;
+                {safe_text(duration)} week(s)
+                &nbsp; • &nbsp;
+                {safe_text(cost_text)}
+            </div>
+
+            <div class="course-skills">
+                {skill_html}
+            </div>
         </div>
         """,
         unsafe_allow_html=True,
     )
 
-    st.markdown("### Your target")
-    location = st.text_input("Location", "Hyderabad")
-    interests = st.text_input("Career interest", "Backend Development")
-    free_only = st.checkbox("Prioritize free learning")
 
-    st.markdown("---")
-    st.markdown("### Backend")
-    configured = st.text_input(
-        "FastAPI URL",
+# ============================================================
+# Hero
+# ============================================================
+st.markdown(
+    """
+    <div class="hero">
+        <div class="hero-label">AI Career Intelligence</div>
+
+        <div class="hero-title">
+            Turn your skills into<br>
+            your next career move.
+        </div>
+
+        <div class="hero-text">
+            SkillPath AI analyzes your resume, matches you with
+            relevant opportunities, identifies skill gaps, and
+            recommends a focused learning path.
+        </div>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
+
+
+# ============================================================
+# Sidebar
+# ============================================================
+with st.sidebar:
+
+    st.markdown("## 🎯 SkillPath AI")
+    st.caption("AI-powered skill-gap and career matching")
+
+    st.divider()
+
+    configured_url = st.text_input(
+        "Backend URL",
         value=API_URL,
         placeholder="https://your-backend.onrender.com",
     )
-    if configured:
-        API_URL = configured.rstrip("/")
+
+    if configured_url:
+        API_URL = configured_url.rstrip("/")
+
+    location = st.text_input(
+        "Target location",
+        "Hyderabad",
+    )
+
+    interests = st.text_input(
+        "Career interest",
+        "Backend Development",
+    )
+
+    free_only = st.checkbox(
+        "Only show free courses",
+        value=False,
+    )
+
+    st.divider()
 
     if API_URL:
-        data, error = api_request("GET", "/api/health")
-        if error:
-            st.error("Backend offline")
-        else:
-            st.success("Backend connected")
-            st.caption(
-                f"{data.get('jobs', 0)} jobs • "
-                f"{data.get('courses', 0)} courses"
+
+        try:
+            response = requests.get(
+                f"{API_URL}/api/health",
+                timeout=10,
             )
 
-# ---------- Hero ----------
+            if response.ok:
+                data = response.json()
+
+                st.success("Backend connected")
+
+                st.caption(
+                    f"{data.get('jobs', 0)} jobs • "
+                    f"{data.get('courses', 0)} courses"
+                )
+
+            else:
+                st.error(
+                    f"Backend returned HTTP {response.status_code}"
+                )
+
+        except requests.RequestException:
+            st.warning(
+                "Backend connection unavailable."
+            )
+
+    st.caption("SkillPath AI • Career Intelligence")
+
+
+if not API_URL:
+
+    st.info(
+        "Set SKILLPATH_API_URL in Streamlit Secrets "
+        "or enter your Render backend URL in the sidebar."
+    )
+
+    st.stop()
+
+
+# ============================================================
+# Input
+# ============================================================
+st.markdown(
+    '<div class="section-title">Build your career profile</div>',
+    unsafe_allow_html=True,
+)
+
 st.markdown(
     """
-<div class="hero">
-    <div class="eyebrow">Career intelligence platform</div>
-    <h1>Turn your current skills<br>into your next opportunity.</h1>
-    <p>
-        Upload your resume or build a profile. SkillPath AI identifies
-        relevant jobs, explains your skill gaps, recommends a focused
-        learning path, and lets you simulate the impact of learning a
-        new skill.
-    </p>
-</div>
-""",
+    <div class="section-subtitle">
+        Upload a resume for automatic skill extraction,
+        or enter your skills manually.
+    </div>
+    """,
     unsafe_allow_html=True,
 )
 
-# ---------- Profile builder ----------
-st.markdown(
-    '<div class="section">Build your profile</div>',
-    unsafe_allow_html=True,
-)
-st.markdown(
-    '<div class="subtle">Start with your resume or enter your skills manually.</div>',
-    unsafe_allow_html=True,
+resume_tab, manual_tab = st.tabs(
+    ["📄 Resume Analysis", "✍️ Manual Profile"]
 )
 
-tab_resume, tab_manual = st.tabs(["📄 Upload resume", "✍️ Enter manually"])
 
-with tab_resume:
+# ============================================================
+# Resume analysis
+# ============================================================
+with resume_tab:
+
     resume = st.file_uploader(
-        "Drop your PDF resume here",
+        "Upload your resume PDF",
         type=["pdf"],
-        help="PDF only, maximum 5 MB.",
+        help="PDF only. Maximum size: 5 MB.",
     )
+
     if st.button(
-        "Analyze my career →",
+        "🚀 Analyze My Career",
         type="primary",
         use_container_width=True,
         disabled=resume is None,
     ):
-        with st.spinner("Analyzing your resume and matching opportunities..."):
-            result, error = api_request(
-                "POST",
-                "/api/analyze-resume",
-                files={
-                    "file": (
-                        resume.name,
-                        resume.getvalue(),
-                        "application/pdf",
-                    )
-                },
-                data={
-                    "location": location,
-                    "interests": interests,
-                    "free_only": str(free_only).lower(),
-                },
-            )
-        if error:
-            st.error(error)
-        else:
-            st.session_state["result"] = result
-            st.success("Your career profile is ready.")
 
-with tab_manual:
-    manual_name = st.text_input("Name", "Candidate")
-    manual_skills = st.text_input(
-        "Skills, separated by commas",
+        try:
+
+            with st.spinner(
+                "Reading your resume and finding opportunities..."
+            ):
+
+                response = requests.post(
+                    f"{API_URL}/api/analyze-resume",
+                    files={
+                        "file": (
+                            resume.name,
+                            resume.getvalue(),
+                            "application/pdf",
+                        )
+                    },
+                    data={
+                        "location": location,
+                        "interests": interests,
+                        "free_only": str(
+                            free_only
+                        ).lower(),
+                    },
+                    timeout=180,
+                )
+
+            if response.ok:
+
+                st.session_state["result"] = response.json()
+
+                st.success(
+                    "Career analysis completed."
+                )
+
+            else:
+
+                st.error(
+                    f"Analysis failed: HTTP "
+                    f"{response.status_code}"
+                )
+
+                with st.expander("Backend response"):
+                    st.code(response.text)
+
+        except requests.RequestException as exc:
+
+            st.error(
+                f"Could not reach backend: {exc}"
+            )
+
+
+# ============================================================
+# Manual profile
+# ============================================================
+with manual_tab:
+
+    name = st.text_input(
+        "Name",
+        "Candidate",
+    )
+
+    skills_text = st.text_input(
+        "Skills",
         "Java, Spring Boot, SQL, Git, Docker",
     )
-    if st.button("Build my profile →", use_container_width=True):
+
+    if st.button(
+        "✨ Analyze Profile",
+        type="primary",
+        use_container_width=True,
+    ):
+
         skills = [
-            x.strip()
-            for x in manual_skills.split(",")
-            if x.strip()
+            item.strip()
+            for item in skills_text.split(",")
+            if item.strip()
         ]
+
         payload = {
             "profile": {
-                "name": manual_name,
+                "name": name,
                 "location": location,
                 "interests": [
-                    x.strip()
-                    for x in interests.split(",")
-                    if x.strip()
+                    item.strip()
+                    for item in interests.split(",")
+                    if item.strip()
                 ],
                 "skills": skills,
             },
             "free_only": free_only,
         }
-        with st.spinner("Building your career profile..."):
-            result, error = api_request(
-                "POST", "/api/analyze", json=payload
-            )
-        if error:
-            st.error(error)
-        else:
-            st.session_state["result"] = result
-            st.success("Your career profile is ready.")
 
-# ---------- Results ----------
+        try:
+
+            with st.spinner(
+                "Analyzing your profile..."
+            ):
+
+                response = requests.post(
+                    f"{API_URL}/api/analyze",
+                    json=payload,
+                    timeout=180,
+                )
+
+            if response.ok:
+
+                st.session_state["result"] = response.json()
+
+                st.success(
+                    "Profile analysis completed."
+                )
+
+            else:
+
+                st.error(
+                    f"Analysis failed: HTTP "
+                    f"{response.status_code}"
+                )
+
+                with st.expander("Backend response"):
+                    st.code(response.text)
+
+        except requests.RequestException as exc:
+
+            st.error(
+                f"Could not reach backend: {exc}"
+            )
+
+
+# ============================================================
+# Results
+# ============================================================
 result = st.session_state.get("result")
 
+
 if result:
-    profile = result.get("profile", {}) or {}
-    jobs = result.get("jobs", []) or []
-    gaps = result.get("skill_gaps", {}) or {}
-    courses = result.get("courses", {}) or {}
-    skills = profile.get("skills", []) or []
+
+    profile = result.get(
+        "profile",
+        {}
+    ) or {}
+
+    jobs = result.get(
+        "jobs",
+        []
+    ) or []
+
+    gaps = result.get(
+        "skill_gaps",
+        {}
+    ) or {}
+
+    courses = result.get(
+        "courses",
+        {}
+    ) or {}
+
+    skills = profile.get(
+        "skills",
+        []
+    ) or []
+
+
+    # --------------------------------------------------------
+    # Career snapshot
+    # --------------------------------------------------------
+    st.divider()
 
     st.markdown(
-        '<div class="section">Your career snapshot</div>',
+        '<div class="section-title">Your career snapshot</div>',
         unsafe_allow_html=True,
     )
 
-    cols = st.columns(4)
-    values = [
-        (len(skills), "Skills detected"),
-        (len(jobs), "Relevant jobs"),
-        (len(gaps) if isinstance(gaps, dict) else 0, "Gap areas"),
-        (len(course_items(courses)), "Learning options"),
+    columns = st.columns(4)
+
+    gap_items = extract_gap_items(gaps)
+    course_items = flatten_courses(courses)
+
+    metrics = [
+        (
+            len(skills),
+            "Detected skills",
+        ),
+        (
+            len(jobs),
+            "Matching jobs",
+        ),
+        (
+            len(gap_items),
+            "Skill gaps",
+        ),
+        (
+            len(course_items),
+            "Learning resources",
+        ),
     ]
-    for col, (value, label) in zip(cols, values):
-        with col:
+
+    for column, (number, label) in zip(
+        columns,
+        metrics,
+    ):
+
+        with column:
+
             st.markdown(
                 f"""
                 <div class="metric">
-                    <div class="metric-value">{value}</div>
-                    <div class="metric-label">{label}</div>
+                    <div class="metric-number">
+                        {safe_text(number)}
+                    </div>
+
+                    <div class="metric-label">
+                        {safe_text(label)}
+                    </div>
                 </div>
                 """,
                 unsafe_allow_html=True,
             )
 
+
+    # --------------------------------------------------------
+    # Candidate skills
+    # --------------------------------------------------------
     if skills:
+
         st.markdown(
-            '<div class="section">Your current skills</div>',
+            '<div class="section-title">Your skills</div>',
             unsafe_allow_html=True,
         )
+
         show_chips(skills)
 
-    # ---------- Jobs ----------
+
+    # --------------------------------------------------------
+    # Jobs
+    # --------------------------------------------------------
     st.markdown(
-        '<div class="section">Opportunities for you</div>',
+        '<div class="section-title">Best-fit opportunities</div>',
         unsafe_allow_html=True,
     )
 
-    if not jobs:
-        st.info("No matching jobs were returned for this profile.")
-    else:
+    st.markdown(
+        """
+        <div class="section-subtitle">
+            Roles ranked using the skills detected from your profile.
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    if jobs:
+
         for job in jobs[:10]:
-            score = job_score(job)
-            title = job.get("title", "Untitled role")
-            company = job.get("company", "Company")
-            where = job.get("location", "Location")
-            required = job.get("required_skills", []) or []
+
+            score = max(
+                0.0,
+                min(
+                    100.0,
+                    score_value(job),
+                ),
+            )
+
+            title = job.get(
+                "title",
+                "Untitled role",
+            )
+
+            company = job.get(
+                "company",
+                "Company",
+            )
+
+            job_location = job.get(
+                "location",
+                "Location",
+            )
+
+            required = job.get(
+                "required_skills",
+                [],
+            ) or []
 
             st.markdown(
                 f"""
                 <div class="job">
-                    <div style="display:flex;justify-content:space-between;gap:20px;">
+
+                    <div style="
+                        display:flex;
+                        justify-content:space-between;
+                        gap:20px;
+                    ">
+
                         <div>
-                            <div class="job-title">{title}</div>
-                            <div class="job-company">
-                                {company} &nbsp; · &nbsp; {where}
+                            <div class="job-title">
+                                {safe_text(title)}
+                            </div>
+
+                            <div class="job-meta">
+                                🏢 {safe_text(company)}
+                                &nbsp; • &nbsp;
+                                📍 {safe_text(job_location)}
                             </div>
                         </div>
-                        <div style="text-align:right;">
-                            <div class="score">{score:.0f}%</div>
-                            <div class="job-company">match</div>
+
+                        <div>
+                            <div class="job-score">
+                                {score:.0f}%
+                            </div>
+
+                            <div class="job-meta">
+                                match
+                            </div>
                         </div>
+
                     </div>
+
                     <div class="progress">
-                        <div style="width:{score}%;"></div>
+                        <div
+                            class="progress-fill"
+                            style="width:{score}%;"
+                        ></div>
                     </div>
+
                 </div>
                 """,
                 unsafe_allow_html=True,
             )
 
             if required:
+
                 st.caption(
-                    "Required: " + " • ".join(map(str, required))
+                    "Required skills: "
+                    + " • ".join(
+                        safe_text(skill)
+                        for skill in required
+                    )
                 )
 
-    # ---------- Skill gaps ----------
-    st.markdown(
-        '<div class="section">Your opportunity gaps</div>',
-        unsafe_allow_html=True,
-    )
-
-    gap_list = []
-    if isinstance(gaps, dict):
-        for value in gaps.values():
-            if isinstance(value, list):
-                gap_list.extend(value)
-            else:
-                gap_list.append(value)
-
-    if gap_list:
-        show_chips(gap_list, "gap")
     else:
-        st.success("No major skill gaps were returned.")
 
-    # ---------- Learning path ----------
+        st.info(
+            "No matching jobs were returned."
+        )
+
+
+    # --------------------------------------------------------
+    # Skill gaps
+    # --------------------------------------------------------
     st.markdown(
-        '<div class="section">Your learning path</div>',
-        unsafe_allow_html=True,
-    )
-
-    learning = course_items(courses)
-
-    if learning:
-        cols = st.columns(min(3, len(learning)))
-        for index, (category, course) in enumerate(learning[:9]):
-            with cols[index % len(cols)]:
-                st.markdown(
-                    f"""
-                    <div class="card">
-                        <div class="eyebrow" style="color:#23845f;">
-                            {category}
-                        </div>
-                        <div class="card-title" style="margin-top:8px;">
-                            {course}
-                        </div>
-                        <div class="card-muted">
-                            Focus on this skill to improve job readiness.
-                        </div>
-                    </div>
-                    """,
-                    unsafe_allow_html=True,
-                )
-    else:
-        st.info("No learning recommendations returned.")
-
-    # ---------- Simulator ----------
-    st.markdown(
-        '<div class="section">Career simulator</div>',
+        '<div class="section-title">Your opportunity gaps</div>',
         unsafe_allow_html=True,
     )
 
     st.markdown(
         """
-        <div class="sim">
-            <div class="sim-title">What if you learn one more skill?</div>
-            <div class="subtle">
-                Pick a target role and test how adding a skill changes
-                your match.
-            </div>
+        <div class="section-subtitle">
+            Skills that can improve your readiness for the
+            available opportunities.
         </div>
         """,
         unsafe_allow_html=True,
     )
 
-    job_map = {
-        job.get("title", str(job.get("id"))): job.get("id")
-        for job in jobs
-        if job.get("id") is not None
-    }
+    if gap_items:
 
-    if job_map:
-        left, right = st.columns([1.5, 1])
-        with left:
-            selected = st.selectbox(
-                "Target role",
-                list(job_map.keys()),
-            )
-        with right:
-            new_skill = st.text_input("Skill to learn", "SQL")
+        gap_columns = st.columns(
+            min(3, len(gap_items))
+        )
 
-        if st.button(
-            "Simulate skill impact →",
-            type="primary",
-            use_container_width=True,
+        for index, gap in enumerate(
+            gap_items[:12]
         ):
-            payload = {
-                "profile": profile,
-                "added_skill": new_skill,
-                "job_id": job_map[selected],
-            }
-            with st.spinner("Calculating impact..."):
-                simulation, error = api_request(
-                    "POST",
-                    "/api/simulate-skill",
-                    json=payload,
+
+            with gap_columns[
+                index % len(gap_columns)
+            ]:
+
+                st.markdown(
+                    f"""
+                    <div class="gap-card">
+
+                        <div class="gap-title">
+                            🎯 {safe_text(gap)}
+                        </div>
+
+                        <div class="gap-text">
+                            Recommended skill to strengthen
+                            your job match.
+                        </div>
+
+                    </div>
+                    """,
+                    unsafe_allow_html=True,
                 )
 
-            if error:
-                st.error(error)
-            else:
-                before = simulation.get("before", {}).get(
-                    "match_score", 0
-                )
-                after = simulation.get("after", {}).get(
-                    "match_score", 0
-                )
-                gain = simulation.get("match_gain", 0)
+    else:
 
-                a, b, c = st.columns(3)
-                a.metric("Current match", before)
-                b.metric("After learning", after, delta=gain)
-                c.metric(
-                    "Local jobs unlocked",
-                    simulation.get("local_jobs_with_skill", 0),
-                )
+        st.success(
+            "No major skill gaps were identified."
+        )
 
-                st.success(
-                    f"Learning {simulation.get('skill', new_skill)} "
-                    "can strengthen your match for this role."
-                )
 
-    # ---------- Agent transparency ----------
+    # --------------------------------------------------------
+    # Learning path
+    # --------------------------------------------------------
     st.markdown(
-        '<div class="section">How SkillPath AI reached this result</div>',
+        '<div class="section-title">Your learning path</div>',
         unsafe_allow_html=True,
     )
 
-    with st.expander("View retrieval and agent trace"):
-        st.markdown(
-            """
-            <div class="trace">
-            Loader → Splitter → Embeddings → FAISS → Retriever
-            → LangGraph → Tools
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
-
-        sources = result.get("sources", [])
-        trace = result.get("trace", [])
-
-        if sources:
-            st.write("Retrieved sources")
-            st.write(sources)
-
-        if trace:
-            st.write("Agent trace")
-            st.write(trace)
-
-else:
-    # Empty state designed for first-time demo.
     st.markdown(
         """
-        <div class="section">How it works</div>
+        <div class="section-subtitle">
+            Focused learning resources based on the skills
+            identified by the career analysis.
+        </div>
         """,
         unsafe_allow_html=True,
     )
 
-    cols = st.columns(3)
+    if course_items:
 
-    steps = [
-        (
-            "01",
-            "Build your profile",
-            "Upload a resume or enter your technical skills.",
-        ),
-        (
-            "02",
-            "Discover opportunities",
-            "The agent matches your profile against the job knowledge base.",
-        ),
-        (
-            "03",
-            "Close the gaps",
-            "Get targeted learning recommendations and simulate skill impact.",
-        ),
-    ]
+        course_columns = st.columns(
+            min(3, len(course_items))
+        )
 
-    for col, (number, title, text) in zip(cols, steps):
-        with col:
-            st.markdown(
-                f"""
-                <div class="card">
-                    <div class="metric-value">{number}</div>
-                    <div class="card-title">{title}</div>
-                    <div class="card-muted">{text}</div>
-                </div>
-                """,
-                unsafe_allow_html=True,
-            )
+        for index, (category, course) in enumerate(
+            course_items[:9]
+        ):
+
+            with course_columns[
+                index % len(course_columns)
+            ]:
+
+                render_course(
+                    category,
+                    course,
+                )
+
+    else:
+
+        st.info(
+            "No learning recommendations returned."
+        )
+
+
+    # --------------------------------------------------------
+    # AI pipeline / evidence
+    # --------------------------------------------------------
+    st.markdown(
+        '<div class="section-title">How SkillPath AI works</div>',
+        unsafe_allow_html=True,
+    )
+
+    with st.expander(
+        "🔎 AI pipeline & evidence",
+        expanded=False,
+    ):
+
+        st.markdown(
+            """
+            **Pipeline**
+
+            Loader → Splitter → Embeddings → FAISS →
+            Retriever → LangGraph → Tools
+            """
+        )
+
+        sources = result.get(
+            "sources",
+            []
+        ) or []
+
+        trace = result.get(
+            "trace",
+            []
+        ) or []
+
+        if sources:
+
+            st.markdown("**Retrieved evidence**")
+
+            for source in sources[:10]:
+
+                if isinstance(source, dict):
+
+                    title = (
+                        source.get("title")
+                        or source.get("name")
+                        or source.get("id")
+                        or "Retrieved source"
+                    )
+
+                    st.markdown(
+                        f"""
+                        <div class="source-card">
+                            {safe_text(title)}
+                        </div>
+                        """,
+                        unsafe_allow_html=True,
+                    )
+
+                else:
+
+                    st.markdown(
+                        f"""
+                        <div class="source-card">
+                            {safe_text(source)}
+                        </div>
+                        """,
+                        unsafe_allow_html=True,
+                    )
+
+        if trace:
+
+            st.markdown("**Agent trace**")
+
+            for item in trace[:15]:
+                st.caption(str(item))
