@@ -466,7 +466,7 @@ def render_course(category, course):
 st.markdown(
     """
     <div class="hero">
-        <div class="hero-label">AI Career Intelligence</div>
+        <div class="hero-label">AI CAREER INTELLIGENCE</div>
 
         <div class="hero-title">
             Turn your skills into<br>
@@ -482,7 +482,6 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
-
 
 # ============================================================
 # Sidebar
