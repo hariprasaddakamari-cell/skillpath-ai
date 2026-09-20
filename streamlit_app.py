@@ -263,13 +263,14 @@ div[data-testid="stFileUploader"] {
 </style>
 """
 
-def render_markdown(content, *args, **kwargs):
-    """Render Streamlit markdown without monkey-patching st.markdown."""
-    if kwargs.get("unsafe_allow_html") and isinstance(content, str):
-        content = textwrap.dedent(content).strip()
-    return st.markdown(content, *args, **kwargs)
+_streamlit_markdown = st.markdown
 
-render_markdown(CSS, unsafe_allow_html=True)
+def render_html(content, *args, **kwargs):
+    if isinstance(content, str):
+        content = textwrap.dedent(content).strip()
+    return _streamlit_markdown(content, *args, **kwargs)
+
+render_html(CSS, unsafe_allow_html=True)
 
 
 # ============================================================
@@ -315,7 +316,7 @@ def show_chips(items):
         for item in cleaned
     )
 
-    render_markdown(html_items, unsafe_allow_html=True)
+    render_html(html_items, unsafe_allow_html=True)
 
 
 def flatten_courses(courses):
@@ -397,7 +398,7 @@ def course_field(course, key, default=""):
 def render_course(category, course):
     """Render one course as a proper UI card."""
     if not isinstance(course, dict):
-        render_markdown(
+        render_html(
             f"""
             <div class="course">
                 <div class="course-category">{safe_text(category)}</div>
@@ -435,7 +436,7 @@ def render_course(category, course):
             for skill in skills[:5]
         )
 
-    render_markdown(
+    render_html(
         f"""
         <div class="course">
             <div class="course-category">
@@ -470,7 +471,7 @@ def render_course(category, course):
 # ============================================================
 # Hero
 # ============================================================
-render_markdown(
+render_html(
     """
     <div class="hero">
         <div class="hero-label">AI CAREER INTELLIGENCE</div>
@@ -495,7 +496,7 @@ render_markdown(
 # ============================================================
 with st.sidebar:
 
-    render_markdown("## 🎯 SkillPath AI")
+    render_html("## 🎯 SkillPath AI")
     st.caption("AI-powered skill-gap and career matching")
 
     st.divider()
@@ -570,12 +571,12 @@ if not API_URL:
 # ============================================================
 # Input
 # ============================================================
-render_markdown(
+render_html(
     '<div class="section-title">Build your career profile</div>',
     unsafe_allow_html=True,
 )
 
-render_markdown(
+render_html(
     """
     <div class="section-subtitle">
         Upload a resume for automatic skill extraction,
@@ -775,7 +776,7 @@ if result:
     # --------------------------------------------------------
     st.divider()
 
-    render_markdown(
+    render_html(
         '<div class="section-title">Your career snapshot</div>',
         unsafe_allow_html=True,
     )
@@ -811,7 +812,7 @@ if result:
 
         with column:
 
-            render_markdown(
+            render_html(
                 f"""
                 <div class="metric">
                     <div class="metric-number">
@@ -832,7 +833,7 @@ if result:
     # --------------------------------------------------------
     if skills:
 
-        render_markdown(
+        render_html(
             '<div class="section-title">Your skills</div>',
             unsafe_allow_html=True,
         )
@@ -843,12 +844,12 @@ if result:
     # --------------------------------------------------------
     # Jobs
     # --------------------------------------------------------
-    render_markdown(
+    render_html(
         '<div class="section-title">Best-fit opportunities</div>',
         unsafe_allow_html=True,
     )
 
-    render_markdown(
+    render_html(
         """
         <div class="section-subtitle">
             Roles ranked using the skills detected from your profile.
@@ -889,7 +890,7 @@ if result:
                 [],
             ) or []
 
-            render_markdown(
+            render_html(
                 f"""
                 <div class="job">
 
@@ -955,12 +956,12 @@ if result:
     # --------------------------------------------------------
     # Skill gaps
     # --------------------------------------------------------
-    render_markdown(
+    render_html(
         '<div class="section-title">Your opportunity gaps</div>',
         unsafe_allow_html=True,
     )
 
-    render_markdown(
+    render_html(
         """
         <div class="section-subtitle">
             Skills that can improve your readiness for the
@@ -984,7 +985,7 @@ if result:
                 index % len(gap_columns)
             ]:
 
-                render_markdown(
+                render_html(
                     f"""
                     <div class="gap-card">
 
@@ -1012,12 +1013,12 @@ if result:
     # --------------------------------------------------------
     # Learning path
     # --------------------------------------------------------
-    render_markdown(
+    render_html(
         '<div class="section-title">Your learning path</div>',
         unsafe_allow_html=True,
     )
 
-    render_markdown(
+    render_html(
         """
         <div class="section-subtitle">
             Focused learning resources based on the skills
@@ -1056,7 +1057,7 @@ if result:
     # --------------------------------------------------------
     # AI pipeline / evidence
     # --------------------------------------------------------
-    render_markdown(
+    render_html(
         '<div class="section-title">How SkillPath AI works</div>',
         unsafe_allow_html=True,
     )
@@ -1066,7 +1067,7 @@ if result:
         expanded=False,
     ):
 
-        render_markdown(
+        render_html(
             """
             **Pipeline**
 
@@ -1087,7 +1088,7 @@ if result:
 
         if sources:
 
-            render_markdown("**Retrieved evidence**")
+            render_html("**Retrieved evidence**")
 
             for source in sources[:10]:
 
@@ -1100,7 +1101,7 @@ if result:
                         or "Retrieved source"
                     )
 
-                    render_markdown(
+                    render_html(
                         f"""
                         <div class="source-card">
                             {safe_text(title)}
@@ -1111,7 +1112,7 @@ if result:
 
                 else:
 
-                    render_markdown(
+                    render_html(
                         f"""
                         <div class="source-card">
                             {safe_text(source)}
@@ -1122,7 +1123,7 @@ if result:
 
         if trace:
 
-            render_markdown("**Agent trace**")
+            render_html("**Agent trace**")
 
             for item in trace[:15]:
                 st.caption(str(item))
