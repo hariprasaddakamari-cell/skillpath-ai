@@ -1,0 +1,1 @@
+Demo resume is intentionally omitted from source package generation in this build. Use any PDF resume containing skills such as Java, Spring Boot, SQL, REST API, Git and React to test /api/analyze-resume.

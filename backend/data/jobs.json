@@ -1,0 +1,891 @@
+[
+  {
+    "id": "J001",
+    "title": "Java Backend Developer",
+    "company": "Aster Systems",
+    "location": "Hyderabad",
+    "required_skills": [
+      "Java",
+      "Spring Boot",
+      "SQL",
+      "REST API",
+      "Git",
+      "Docker",
+      "Redis"
+    ],
+    "preferred_skills": [
+      "Redis",
+      "Kafka",
+      "AWS"
+    ],
+    "experience": "0-2 years",
+    "salary_min": 450000,
+    "salary_max": 750000,
+    "description": "Java Backend Developer opportunity focused on Java, Spring Boot, SQL, REST API, Git. Useful complementary skills include Redis, Kafka."
+  },
+  {
+    "id": "J002",
+    "title": "Spring Boot Developer",
+    "company": "Nexora Labs",
+    "location": "Bengaluru",
+    "required_skills": [
+      "Java",
+      "Spring Boot",
+      "Spring Security",
+      "JPA",
+      "SQL",
+      "REST API"
+    ],
+    "preferred_skills": [
+      "Docker",
+      "Kafka",
+      "JUnit"
+    ],
+    "experience": "0-2 years",
+    "salary_min": 500000,
+    "salary_max": 800000,
+    "description": "Spring Boot Developer opportunity focused on Java, Spring Boot, Spring Security, JPA, SQL. Useful complementary skills include Docker, Kafka."
+  },
+  {
+    "id": "J003",
+    "title": "Backend Engineer",
+    "company": "BluePeak Digital",
+    "location": "Chennai",
+    "required_skills": [
+      "Java",
+      "Spring Boot",
+      "PostgreSQL",
+      "Redis",
+      "Docker",
+      "REST API"
+    ],
+    "preferred_skills": [
+      "Kafka",
+      "AWS"
+    ],
+    "experience": "0-2 years",
+    "salary_min": 550000,
+    "salary_max": 850000,
+    "description": "Backend Engineer opportunity focused on Java, Spring Boot, PostgreSQL, Redis, Docker. Useful complementary skills include Kafka, AWS."
+  },
+  {
+    "id": "J004",
+    "title": "Software Engineer",
+    "company": "CloudForge",
+    "location": "Visakhapatnam",
+    "required_skills": [
+      "Java",
+      "Data Structures",
+      "SQL",
+      "Git",
+      "REST API"
+    ],
+    "preferred_skills": [
+      "Spring Boot",
+      "Docker",
+      "AWS"
+    ],
+    "experience": "0-2 years",
+    "salary_min": 600000,
+    "salary_max": 900000,
+    "description": "Software Engineer opportunity focused on Java, Data Structures, SQL, Git, REST API. Useful complementary skills include Spring Boot, Docker."
+  },
+  {
+    "id": "J005",
+    "title": "Full Stack Developer",
+    "company": "FinEdge Tech",
+    "location": "Pune",
+    "required_skills": [
+      "Java",
+      "Spring Boot",
+      "React",
+      "JavaScript",
+      "SQL",
+      "REST API",
+      "Git"
+    ],
+    "preferred_skills": [
+      "Docker",
+      "Redis"
+    ],
+    "experience": "0-2 years",
+    "salary_min": 650000,
+    "salary_max": 950000,
+    "description": "Full Stack Developer opportunity focused on Java, Spring Boot, React, JavaScript, SQL. Useful complementary skills include Docker, Redis."
+  },
+  {
+    "id": "J006",
+    "title": "DevOps Engineer",
+    "company": "OrbitWorks",
+    "location": "Vijayawada",
+    "required_skills": [
+      "Linux",
+      "Git",
+      "Docker",
+      "CI/CD",
+      "AWS",
+      "Kubernetes"
+    ],
+    "preferred_skills": [
+      "Python",
+      "Terraform"
+    ],
+    "experience": "0-2 years",
+    "salary_min": 700000,
+    "salary_max": 1000000,
+    "description": "DevOps Engineer opportunity focused on Linux, Git, Docker, CI/CD, AWS. Useful complementary skills include Python, Terraform."
+  },
+  {
+    "id": "J007",
+    "title": "Cloud Backend Engineer",
+    "company": "DataNest",
+    "location": "Mumbai",
+    "required_skills": [
+      "Java",
+      "Spring Boot",
+      "Docker",
+      "AWS",
+      "REST API",
+      "SQL"
+    ],
+    "preferred_skills": [
+      "Kubernetes",
+      "Redis"
+    ],
+    "experience": "0-2 years",
+    "salary_min": 750000,
+    "salary_max": 1050000,
+    "description": "Cloud Backend Engineer opportunity focused on Java, Spring Boot, Docker, AWS, REST API. Useful complementary skills include Kubernetes, Redis."
+  },
+  {
+    "id": "J008",
+    "title": "API Developer",
+    "company": "SkyGrid",
+    "location": "Remote",
+    "required_skills": [
+      "Java",
+      "REST API",
+      "SQL",
+      "Spring Boot",
+      "Git"
+    ],
+    "preferred_skills": [
+      "Docker",
+      "Postman"
+    ],
+    "experience": "0-2 years",
+    "salary_min": 800000,
+    "salary_max": 1100000,
+    "description": "API Developer opportunity focused on Java, REST API, SQL, Spring Boot, Git. Useful complementary skills include Docker, Postman."
+  },
+  {
+    "id": "J009",
+    "title": "Python Backend Developer",
+    "company": "VertexWorks",
+    "location": "Hyderabad",
+    "required_skills": [
+      "Python",
+      "FastAPI",
+      "SQL",
+      "REST API",
+      "Git",
+      "Docker"
+    ],
+    "preferred_skills": [
+      "Redis",
+      "AWS"
+    ],
+    "experience": "0-2 years",
+    "salary_min": 450000,
+    "salary_max": 750000,
+    "description": "Python Backend Developer opportunity focused on Python, FastAPI, SQL, REST API, Git. Useful complementary skills include Redis, AWS."
+  },
+  {
+    "id": "J010",
+    "title": "Data Engineer",
+    "company": "NovaStack",
+    "location": "Bengaluru",
+    "required_skills": [
+      "Python",
+      "SQL",
+      "ETL",
+      "PostgreSQL",
+      "Git"
+    ],
+    "preferred_skills": [
+      "Spark",
+      "Kafka",
+      "AWS"
+    ],
+    "experience": "0-2 years",
+    "salary_min": 500000,
+    "salary_max": 800000,
+    "description": "Data Engineer opportunity focused on Python, SQL, ETL, PostgreSQL, Git. Useful complementary skills include Spark, Kafka."
+  },
+  {
+    "id": "J011",
+    "title": "Java Backend Developer",
+    "company": "Cobalt Labs",
+    "location": "Chennai",
+    "required_skills": [
+      "Java",
+      "Spring Boot",
+      "SQL",
+      "REST API",
+      "Git",
+      "Docker"
+    ],
+    "preferred_skills": [
+      "Redis",
+      "Kafka",
+      "AWS"
+    ],
+    "experience": "0-2 years",
+    "salary_min": 550000,
+    "salary_max": 850000,
+    "description": "Java Backend Developer opportunity focused on Java, Spring Boot, SQL, REST API, Git. Useful complementary skills include Redis, Kafka."
+  },
+  {
+    "id": "J012",
+    "title": "Spring Boot Developer",
+    "company": "Riverstone Tech",
+    "location": "Visakhapatnam",
+    "required_skills": [
+      "Java",
+      "Spring Boot",
+      "Spring Security",
+      "JPA",
+      "SQL",
+      "REST API"
+    ],
+    "preferred_skills": [
+      "Docker",
+      "Kafka",
+      "JUnit"
+    ],
+    "experience": "0-2 years",
+    "salary_min": 600000,
+    "salary_max": 900000,
+    "description": "Spring Boot Developer opportunity focused on Java, Spring Boot, Spring Security, JPA, SQL. Useful complementary skills include Docker, Kafka."
+  },
+  {
+    "id": "J013",
+    "title": "Backend Engineer",
+    "company": "ByteCraft",
+    "location": "Pune",
+    "required_skills": [
+      "Java",
+      "Spring Boot",
+      "PostgreSQL",
+      "Redis",
+      "Docker",
+      "REST API"
+    ],
+    "preferred_skills": [
+      "Kafka",
+      "AWS"
+    ],
+    "experience": "0-2 years",
+    "salary_min": 650000,
+    "salary_max": 950000,
+    "description": "Backend Engineer opportunity focused on Java, Spring Boot, PostgreSQL, Redis, Docker. Useful complementary skills include Kafka, AWS."
+  },
+  {
+    "id": "J014",
+    "title": "Software Engineer",
+    "company": "Zenith Digital",
+    "location": "Vijayawada",
+    "required_skills": [
+      "Java",
+      "Data Structures",
+      "SQL",
+      "Git",
+      "REST API"
+    ],
+    "preferred_skills": [
+      "Spring Boot",
+      "Docker",
+      "AWS"
+    ],
+    "experience": "0-2 years",
+    "salary_min": 700000,
+    "salary_max": 1000000,
+    "description": "Software Engineer opportunity focused on Java, Data Structures, SQL, Git, REST API. Useful complementary skills include Spring Boot, Docker."
+  },
+  {
+    "id": "J015",
+    "title": "Full Stack Developer",
+    "company": "PrismWorks",
+    "location": "Mumbai",
+    "required_skills": [
+      "Java",
+      "Spring Boot",
+      "React",
+      "JavaScript",
+      "SQL",
+      "REST API",
+      "Git"
+    ],
+    "preferred_skills": [
+      "Docker",
+      "Redis"
+    ],
+    "experience": "0-2 years",
+    "salary_min": 750000,
+    "salary_max": 1050000,
+    "description": "Full Stack Developer opportunity focused on Java, Spring Boot, React, JavaScript, SQL. Useful complementary skills include Docker, Redis."
+  },
+  {
+    "id": "J016",
+    "title": "DevOps Engineer",
+    "company": "Aster Systems",
+    "location": "Remote",
+    "required_skills": [
+      "Linux",
+      "Git",
+      "Docker",
+      "CI/CD",
+      "AWS",
+      "Kubernetes"
+    ],
+    "preferred_skills": [
+      "Python",
+      "Terraform"
+    ],
+    "experience": "0-2 years",
+    "salary_min": 800000,
+    "salary_max": 1100000,
+    "description": "DevOps Engineer opportunity focused on Linux, Git, Docker, CI/CD, AWS. Useful complementary skills include Python, Terraform."
+  },
+  {
+    "id": "J017",
+    "title": "Cloud Backend Engineer",
+    "company": "Nexora Labs",
+    "location": "Hyderabad",
+    "required_skills": [
+      "Java",
+      "Spring Boot",
+      "Docker",
+      "AWS",
+      "REST API",
+      "SQL"
+    ],
+    "preferred_skills": [
+      "Kubernetes",
+      "Redis"
+    ],
+    "experience": "0-2 years",
+    "salary_min": 450000,
+    "salary_max": 750000,
+    "description": "Cloud Backend Engineer opportunity focused on Java, Spring Boot, Docker, AWS, REST API. Useful complementary skills include Kubernetes, Redis."
+  },
+  {
+    "id": "J018",
+    "title": "API Developer",
+    "company": "BluePeak Digital",
+    "location": "Bengaluru",
+    "required_skills": [
+      "Java",
+      "REST API",
+      "SQL",
+      "Spring Boot",
+      "Git"
+    ],
+    "preferred_skills": [
+      "Docker",
+      "Postman"
+    ],
+    "experience": "0-2 years",
+    "salary_min": 500000,
+    "salary_max": 800000,
+    "description": "API Developer opportunity focused on Java, REST API, SQL, Spring Boot, Git. Useful complementary skills include Docker, Postman."
+  },
+  {
+    "id": "J019",
+    "title": "Python Backend Developer",
+    "company": "CloudForge",
+    "location": "Chennai",
+    "required_skills": [
+      "Python",
+      "FastAPI",
+      "SQL",
+      "REST API",
+      "Git",
+      "Docker"
+    ],
+    "preferred_skills": [
+      "Redis",
+      "AWS"
+    ],
+    "experience": "0-2 years",
+    "salary_min": 550000,
+    "salary_max": 850000,
+    "description": "Python Backend Developer opportunity focused on Python, FastAPI, SQL, REST API, Git. Useful complementary skills include Redis, AWS."
+  },
+  {
+    "id": "J020",
+    "title": "Data Engineer",
+    "company": "FinEdge Tech",
+    "location": "Visakhapatnam",
+    "required_skills": [
+      "Python",
+      "SQL",
+      "ETL",
+      "PostgreSQL",
+      "Git"
+    ],
+    "preferred_skills": [
+      "Spark",
+      "Kafka",
+      "AWS"
+    ],
+    "experience": "0-2 years",
+    "salary_min": 600000,
+    "salary_max": 900000,
+    "description": "Data Engineer opportunity focused on Python, SQL, ETL, PostgreSQL, Git. Useful complementary skills include Spark, Kafka."
+  },
+  {
+    "id": "J021",
+    "title": "Java Backend Developer",
+    "company": "OrbitWorks",
+    "location": "Pune",
+    "required_skills": [
+      "Java",
+      "Spring Boot",
+      "SQL",
+      "REST API",
+      "Git",
+      "Docker"
+    ],
+    "preferred_skills": [
+      "Redis",
+      "Kafka",
+      "AWS"
+    ],
+    "experience": "0-2 years",
+    "salary_min": 650000,
+    "salary_max": 950000,
+    "description": "Java Backend Developer opportunity focused on Java, Spring Boot, SQL, REST API, Git. Useful complementary skills include Redis, Kafka."
+  },
+  {
+    "id": "J022",
+    "title": "Spring Boot Developer",
+    "company": "DataNest",
+    "location": "Vijayawada",
+    "required_skills": [
+      "Java",
+      "Spring Boot",
+      "Spring Security",
+      "JPA",
+      "SQL",
+      "REST API"
+    ],
+    "preferred_skills": [
+      "Docker",
+      "Kafka",
+      "JUnit"
+    ],
+    "experience": "0-2 years",
+    "salary_min": 700000,
+    "salary_max": 1000000,
+    "description": "Spring Boot Developer opportunity focused on Java, Spring Boot, Spring Security, JPA, SQL. Useful complementary skills include Docker, Kafka."
+  },
+  {
+    "id": "J023",
+    "title": "Backend Engineer",
+    "company": "SkyGrid",
+    "location": "Mumbai",
+    "required_skills": [
+      "Java",
+      "Spring Boot",
+      "PostgreSQL",
+      "Redis",
+      "Docker",
+      "REST API"
+    ],
+    "preferred_skills": [
+      "Kafka",
+      "AWS"
+    ],
+    "experience": "0-2 years",
+    "salary_min": 750000,
+    "salary_max": 1050000,
+    "description": "Backend Engineer opportunity focused on Java, Spring Boot, PostgreSQL, Redis, Docker. Useful complementary skills include Kafka, AWS."
+  },
+  {
+    "id": "J024",
+    "title": "Software Engineer",
+    "company": "VertexWorks",
+    "location": "Remote",
+    "required_skills": [
+      "Java",
+      "Data Structures",
+      "SQL",
+      "Git",
+      "REST API"
+    ],
+    "preferred_skills": [
+      "Spring Boot",
+      "Docker",
+      "AWS"
+    ],
+    "experience": "0-2 years",
+    "salary_min": 800000,
+    "salary_max": 1100000,
+    "description": "Software Engineer opportunity focused on Java, Data Structures, SQL, Git, REST API. Useful complementary skills include Spring Boot, Docker."
+  },
+  {
+    "id": "J025",
+    "title": "Full Stack Developer",
+    "company": "NovaStack",
+    "location": "Hyderabad",
+    "required_skills": [
+      "Java",
+      "Spring Boot",
+      "React",
+      "JavaScript",
+      "SQL",
+      "REST API",
+      "Git"
+    ],
+    "preferred_skills": [
+      "Docker",
+      "Redis"
+    ],
+    "experience": "0-2 years",
+    "salary_min": 450000,
+    "salary_max": 750000,
+    "description": "Full Stack Developer opportunity focused on Java, Spring Boot, React, JavaScript, SQL. Useful complementary skills include Docker, Redis."
+  },
+  {
+    "id": "J026",
+    "title": "DevOps Engineer",
+    "company": "Cobalt Labs",
+    "location": "Bengaluru",
+    "required_skills": [
+      "Linux",
+      "Git",
+      "Docker",
+      "CI/CD",
+      "AWS",
+      "Kubernetes"
+    ],
+    "preferred_skills": [
+      "Python",
+      "Terraform"
+    ],
+    "experience": "0-2 years",
+    "salary_min": 500000,
+    "salary_max": 800000,
+    "description": "DevOps Engineer opportunity focused on Linux, Git, Docker, CI/CD, AWS. Useful complementary skills include Python, Terraform."
+  },
+  {
+    "id": "J027",
+    "title": "Cloud Backend Engineer",
+    "company": "Riverstone Tech",
+    "location": "Chennai",
+    "required_skills": [
+      "Java",
+      "Spring Boot",
+      "Docker",
+      "AWS",
+      "REST API",
+      "SQL"
+    ],
+    "preferred_skills": [
+      "Kubernetes",
+      "Redis"
+    ],
+    "experience": "0-2 years",
+    "salary_min": 550000,
+    "salary_max": 850000,
+    "description": "Cloud Backend Engineer opportunity focused on Java, Spring Boot, Docker, AWS, REST API. Useful complementary skills include Kubernetes, Redis."
+  },
+  {
+    "id": "J028",
+    "title": "API Developer",
+    "company": "ByteCraft",
+    "location": "Visakhapatnam",
+    "required_skills": [
+      "Java",
+      "REST API",
+      "SQL",
+      "Spring Boot",
+      "Git"
+    ],
+    "preferred_skills": [
+      "Docker",
+      "Postman"
+    ],
+    "experience": "0-2 years",
+    "salary_min": 600000,
+    "salary_max": 900000,
+    "description": "API Developer opportunity focused on Java, REST API, SQL, Spring Boot, Git. Useful complementary skills include Docker, Postman."
+  },
+  {
+    "id": "J029",
+    "title": "Python Backend Developer",
+    "company": "Zenith Digital",
+    "location": "Pune",
+    "required_skills": [
+      "Python",
+      "FastAPI",
+      "SQL",
+      "REST API",
+      "Git",
+      "Docker"
+    ],
+    "preferred_skills": [
+      "Redis",
+      "AWS"
+    ],
+    "experience": "0-2 years",
+    "salary_min": 650000,
+    "salary_max": 950000,
+    "description": "Python Backend Developer opportunity focused on Python, FastAPI, SQL, REST API, Git. Useful complementary skills include Redis, AWS."
+  },
+  {
+    "id": "J030",
+    "title": "Data Engineer",
+    "company": "PrismWorks",
+    "location": "Vijayawada",
+    "required_skills": [
+      "Python",
+      "SQL",
+      "ETL",
+      "PostgreSQL",
+      "Git"
+    ],
+    "preferred_skills": [
+      "Spark",
+      "Kafka",
+      "AWS"
+    ],
+    "experience": "0-2 years",
+    "salary_min": 700000,
+    "salary_max": 1000000,
+    "description": "Data Engineer opportunity focused on Python, SQL, ETL, PostgreSQL, Git. Useful complementary skills include Spark, Kafka."
+  },
+  {
+    "id": "J031",
+    "title": "Java Backend Developer",
+    "company": "Aster Systems",
+    "location": "Mumbai",
+    "required_skills": [
+      "Java",
+      "Spring Boot",
+      "SQL",
+      "REST API",
+      "Git",
+      "Docker"
+    ],
+    "preferred_skills": [
+      "Redis",
+      "Kafka",
+      "AWS"
+    ],
+    "experience": "0-2 years",
+    "salary_min": 750000,
+    "salary_max": 1050000,
+    "description": "Java Backend Developer opportunity focused on Java, Spring Boot, SQL, REST API, Git. Useful complementary skills include Redis, Kafka."
+  },
+  {
+    "id": "J032",
+    "title": "Spring Boot Developer",
+    "company": "Nexora Labs",
+    "location": "Remote",
+    "required_skills": [
+      "Java",
+      "Spring Boot",
+      "Spring Security",
+      "JPA",
+      "SQL",
+      "REST API"
+    ],
+    "preferred_skills": [
+      "Docker",
+      "Kafka",
+      "JUnit"
+    ],
+    "experience": "0-2 years",
+    "salary_min": 800000,
+    "salary_max": 1100000,
+    "description": "Spring Boot Developer opportunity focused on Java, Spring Boot, Spring Security, JPA, SQL. Useful complementary skills include Docker, Kafka."
+  },
+  {
+    "id": "J033",
+    "title": "Backend Engineer",
+    "company": "BluePeak Digital",
+    "location": "Hyderabad",
+    "required_skills": [
+      "Java",
+      "Spring Boot",
+      "PostgreSQL",
+      "Redis",
+      "Docker",
+      "REST API"
+    ],
+    "preferred_skills": [
+      "Kafka",
+      "AWS"
+    ],
+    "experience": "1-3 years",
+    "salary_min": 450000,
+    "salary_max": 750000,
+    "description": "Backend Engineer opportunity focused on Java, Spring Boot, PostgreSQL, Redis, Docker. Useful complementary skills include Kafka, AWS."
+  },
+  {
+    "id": "J034",
+    "title": "Software Engineer",
+    "company": "CloudForge",
+    "location": "Bengaluru",
+    "required_skills": [
+      "Java",
+      "Data Structures",
+      "SQL",
+      "Git",
+      "REST API"
+    ],
+    "preferred_skills": [
+      "Spring Boot",
+      "Docker",
+      "AWS"
+    ],
+    "experience": "1-3 years",
+    "salary_min": 500000,
+    "salary_max": 800000,
+    "description": "Software Engineer opportunity focused on Java, Data Structures, SQL, Git, REST API. Useful complementary skills include Spring Boot, Docker."
+  },
+  {
+    "id": "J035",
+    "title": "Full Stack Developer",
+    "company": "FinEdge Tech",
+    "location": "Chennai",
+    "required_skills": [
+      "Java",
+      "Spring Boot",
+      "React",
+      "JavaScript",
+      "SQL",
+      "REST API",
+      "Git"
+    ],
+    "preferred_skills": [
+      "Docker",
+      "Redis"
+    ],
+    "experience": "1-3 years",
+    "salary_min": 550000,
+    "salary_max": 850000,
+    "description": "Full Stack Developer opportunity focused on Java, Spring Boot, React, JavaScript, SQL. Useful complementary skills include Docker, Redis."
+  },
+  {
+    "id": "J036",
+    "title": "DevOps Engineer",
+    "company": "OrbitWorks",
+    "location": "Visakhapatnam",
+    "required_skills": [
+      "Linux",
+      "Git",
+      "Docker",
+      "CI/CD",
+      "AWS",
+      "Kubernetes"
+    ],
+    "preferred_skills": [
+      "Python",
+      "Terraform"
+    ],
+    "experience": "1-3 years",
+    "salary_min": 600000,
+    "salary_max": 900000,
+    "description": "DevOps Engineer opportunity focused on Linux, Git, Docker, CI/CD, AWS. Useful complementary skills include Python, Terraform."
+  },
+  {
+    "id": "J037",
+    "title": "Cloud Backend Engineer",
+    "company": "DataNest",
+    "location": "Pune",
+    "required_skills": [
+      "Java",
+      "Spring Boot",
+      "Docker",
+      "AWS",
+      "REST API",
+      "SQL"
+    ],
+    "preferred_skills": [
+      "Kubernetes",
+      "Redis"
+    ],
+    "experience": "1-3 years",
+    "salary_min": 650000,
+    "salary_max": 950000,
+    "description": "Cloud Backend Engineer opportunity focused on Java, Spring Boot, Docker, AWS, REST API. Useful complementary skills include Kubernetes, Redis."
+  },
+  {
+    "id": "J038",
+    "title": "API Developer",
+    "company": "SkyGrid",
+    "location": "Vijayawada",
+    "required_skills": [
+      "Java",
+      "REST API",
+      "SQL",
+      "Spring Boot",
+      "Git"
+    ],
+    "preferred_skills": [
+      "Docker",
+      "Postman"
+    ],
+    "experience": "1-3 years",
+    "salary_min": 700000,
+    "salary_max": 1000000,
+    "description": "API Developer opportunity focused on Java, REST API, SQL, Spring Boot, Git. Useful complementary skills include Docker, Postman."
+  },
+  {
+    "id": "J039",
+    "title": "Python Backend Developer",
+    "company": "VertexWorks",
+    "location": "Mumbai",
+    "required_skills": [
+      "Python",
+      "FastAPI",
+      "SQL",
+      "REST API",
+      "Git",
+      "Docker"
+    ],
+    "preferred_skills": [
+      "Redis",
+      "AWS"
+    ],
+    "experience": "1-3 years",
+    "salary_min": 750000,
+    "salary_max": 1050000,
+    "description": "Python Backend Developer opportunity focused on Python, FastAPI, SQL, REST API, Git. Useful complementary skills include Redis, AWS."
+  },
+  {
+    "id": "J040",
+    "title": "Data Engineer",
+    "company": "NovaStack",
+    "location": "Remote",
+    "required_skills": [
+      "Python",
+      "SQL",
+      "ETL",
+      "PostgreSQL",
+      "Git"
+    ],
+    "preferred_skills": [
+      "Spark",
+      "Kafka",
+      "AWS"
+    ],
+    "experience": "1-3 years",
+    "salary_min": 800000,
+    "salary_max": 1100000,
+    "description": "Data Engineer opportunity focused on Python, SQL, ETL, PostgreSQL, Git. Useful complementary skills include Spark, Kafka."
+  }
+]

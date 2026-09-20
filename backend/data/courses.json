@@ -1,0 +1,833 @@
+[
+  {
+    "id": "C001",
+    "title": "Docker Fundamentals",
+    "provider": "Open Learning Catalog",
+    "skills": [
+      "Docker",
+      "Containers",
+      "Docker Compose"
+    ],
+    "duration_weeks": 2,
+    "cost": 0,
+    "level": "Beginner",
+    "url": "https://example.com/course/1"
+  },
+  {
+    "id": "C002",
+    "title": "Redis Essentials",
+    "provider": "Open Learning Catalog",
+    "skills": [
+      "Redis",
+      "Caching",
+      "TTL"
+    ],
+    "duration_weeks": 1,
+    "cost": 0,
+    "level": "Beginner",
+    "url": "https://example.com/course/2"
+  },
+  {
+    "id": "C003",
+    "title": "Apache Kafka Fundamentals",
+    "provider": "Open Learning Catalog",
+    "skills": [
+      "Kafka",
+      "Event Streaming",
+      "Messaging"
+    ],
+    "duration_weeks": 3,
+    "cost": 500,
+    "level": "Beginner",
+    "url": "https://example.com/course/3"
+  },
+  {
+    "id": "C004",
+    "title": "AWS Cloud Foundations",
+    "provider": "Open Learning Catalog",
+    "skills": [
+      "AWS",
+      "Cloud Computing"
+    ],
+    "duration_weeks": 4,
+    "cost": 0,
+    "level": "Beginner",
+    "url": "https://example.com/course/4"
+  },
+  {
+    "id": "C005",
+    "title": "Kubernetes for Developers",
+    "provider": "Open Learning Catalog",
+    "skills": [
+      "Kubernetes",
+      "Containers",
+      "Deployment"
+    ],
+    "duration_weeks": 4,
+    "cost": 1200,
+    "level": "Intermediate",
+    "url": "https://example.com/course/5"
+  },
+  {
+    "id": "C006",
+    "title": "Spring Security Essentials",
+    "provider": "Open Learning Catalog",
+    "skills": [
+      "Spring Security",
+      "OAuth2",
+      "JWT"
+    ],
+    "duration_weeks": 2,
+    "cost": 0,
+    "level": "Intermediate",
+    "url": "https://example.com/course/6"
+  },
+  {
+    "id": "C007",
+    "title": "PostgreSQL for Developers",
+    "provider": "Open Learning Catalog",
+    "skills": [
+      "PostgreSQL",
+      "SQL",
+      "Database"
+    ],
+    "duration_weeks": 2,
+    "cost": 0,
+    "level": "Beginner",
+    "url": "https://example.com/course/7"
+  },
+  {
+    "id": "C008",
+    "title": "CI/CD Foundations",
+    "provider": "Open Learning Catalog",
+    "skills": [
+      "CI/CD",
+      "GitHub Actions",
+      "Pipelines"
+    ],
+    "duration_weeks": 2,
+    "cost": 0,
+    "level": "Beginner",
+    "url": "https://example.com/course/8"
+  },
+  {
+    "id": "C009",
+    "title": "Java Core & OOP",
+    "provider": "Open Learning Catalog",
+    "skills": [
+      "Java",
+      "OOP",
+      "Collections"
+    ],
+    "duration_weeks": 4,
+    "cost": 0,
+    "level": "Beginner",
+    "url": "https://example.com/course/9"
+  },
+  {
+    "id": "C010",
+    "title": "Spring Boot REST APIs",
+    "provider": "Open Learning Catalog",
+    "skills": [
+      "Spring Boot",
+      "REST API",
+      "Java"
+    ],
+    "duration_weeks": 4,
+    "cost": 0,
+    "level": "Beginner",
+    "url": "https://example.com/course/10"
+  },
+  {
+    "id": "C011",
+    "title": "JPA & Hibernate",
+    "provider": "Open Learning Catalog",
+    "skills": [
+      "JPA",
+      "Hibernate",
+      "Java"
+    ],
+    "duration_weeks": 3,
+    "cost": 700,
+    "level": "Intermediate",
+    "url": "https://example.com/course/11"
+  },
+  {
+    "id": "C012",
+    "title": "React Foundations",
+    "provider": "Open Learning Catalog",
+    "skills": [
+      "React",
+      "JavaScript",
+      "Frontend"
+    ],
+    "duration_weeks": 4,
+    "cost": 0,
+    "level": "Beginner",
+    "url": "https://example.com/course/12"
+  },
+  {
+    "id": "C013",
+    "title": "JavaScript Essentials",
+    "provider": "Open Learning Catalog",
+    "skills": [
+      "JavaScript",
+      "ES6",
+      "Frontend"
+    ],
+    "duration_weeks": 3,
+    "cost": 0,
+    "level": "Beginner",
+    "url": "https://example.com/course/13"
+  },
+  {
+    "id": "C014",
+    "title": "Linux Command Line",
+    "provider": "Open Learning Catalog",
+    "skills": [
+      "Linux",
+      "Shell",
+      "Operating Systems"
+    ],
+    "duration_weeks": 2,
+    "cost": 0,
+    "level": "Beginner",
+    "url": "https://example.com/course/14"
+  },
+  {
+    "id": "C015",
+    "title": "Python for Backend",
+    "provider": "Open Learning Catalog",
+    "skills": [
+      "Python",
+      "FastAPI",
+      "REST API"
+    ],
+    "duration_weeks": 4,
+    "cost": 0,
+    "level": "Beginner",
+    "url": "https://example.com/course/15"
+  },
+  {
+    "id": "C016",
+    "title": "FastAPI Development",
+    "provider": "Open Learning Catalog",
+    "skills": [
+      "FastAPI",
+      "Python",
+      "REST API"
+    ],
+    "duration_weeks": 3,
+    "cost": 0,
+    "level": "Intermediate",
+    "url": "https://example.com/course/16"
+  },
+  {
+    "id": "C017",
+    "title": "SQL Foundations",
+    "provider": "Open Learning Catalog",
+    "skills": [
+      "SQL",
+      "Database"
+    ],
+    "duration_weeks": 3,
+    "cost": 0,
+    "level": "Beginner",
+    "url": "https://example.com/course/17"
+  },
+  {
+    "id": "C018",
+    "title": "ETL Engineering Basics",
+    "provider": "Open Learning Catalog",
+    "skills": [
+      "ETL",
+      "Python",
+      "SQL"
+    ],
+    "duration_weeks": 3,
+    "cost": 0,
+    "level": "Intermediate",
+    "url": "https://example.com/course/18"
+  },
+  {
+    "id": "C019",
+    "title": "Apache Spark Foundations",
+    "provider": "Open Learning Catalog",
+    "skills": [
+      "Spark",
+      "Python",
+      "Data Engineering"
+    ],
+    "duration_weeks": 4,
+    "cost": 900,
+    "level": "Intermediate",
+    "url": "https://example.com/course/19"
+  },
+  {
+    "id": "C020",
+    "title": "Git & GitHub",
+    "provider": "Open Learning Catalog",
+    "skills": [
+      "Git",
+      "GitHub"
+    ],
+    "duration_weeks": 1,
+    "cost": 0,
+    "level": "Beginner",
+    "url": "https://example.com/course/20"
+  },
+  {
+    "id": "C021",
+    "title": "Docker Compose Projects",
+    "provider": "Open Learning Catalog",
+    "skills": [
+      "Docker",
+      "Docker Compose"
+    ],
+    "duration_weeks": 2,
+    "cost": 0,
+    "level": "Intermediate",
+    "url": "https://example.com/course/21"
+  },
+  {
+    "id": "C022",
+    "title": "Redis Caching Patterns",
+    "provider": "Open Learning Catalog",
+    "skills": [
+      "Redis",
+      "Caching",
+      "TTL"
+    ],
+    "duration_weeks": 2,
+    "cost": 600,
+    "level": "Intermediate",
+    "url": "https://example.com/course/22"
+  },
+  {
+    "id": "C023",
+    "title": "Kafka Event-Driven Systems",
+    "provider": "Open Learning Catalog",
+    "skills": [
+      "Kafka",
+      "Event Streaming",
+      "Messaging"
+    ],
+    "duration_weeks": 4,
+    "cost": 900,
+    "level": "Intermediate",
+    "url": "https://example.com/course/23"
+  },
+  {
+    "id": "C024",
+    "title": "AWS Deployment Basics",
+    "provider": "Open Learning Catalog",
+    "skills": [
+      "AWS",
+      "Deployment",
+      "Cloud Computing"
+    ],
+    "duration_weeks": 3,
+    "cost": 0,
+    "level": "Beginner",
+    "url": "https://example.com/course/24"
+  },
+  {
+    "id": "C025",
+    "title": "Terraform Foundations",
+    "provider": "Open Learning Catalog",
+    "skills": [
+      "Terraform",
+      "Infrastructure as Code",
+      "AWS"
+    ],
+    "duration_weeks": 3,
+    "cost": 0,
+    "level": "Intermediate",
+    "url": "https://example.com/course/25"
+  },
+  {
+    "id": "C026",
+    "title": "Kubernetes Operations",
+    "provider": "Open Learning Catalog",
+    "skills": [
+      "Kubernetes",
+      "Deployment",
+      "Containers"
+    ],
+    "duration_weeks": 4,
+    "cost": 1500,
+    "level": "Intermediate",
+    "url": "https://example.com/course/26"
+  },
+  {
+    "id": "C027",
+    "title": "Testing Java Applications",
+    "provider": "Open Learning Catalog",
+    "skills": [
+      "JUnit",
+      "Java",
+      "Testing"
+    ],
+    "duration_weeks": 2,
+    "cost": 0,
+    "level": "Beginner",
+    "url": "https://example.com/course/27"
+  },
+  {
+    "id": "C028",
+    "title": "REST API Design",
+    "provider": "Open Learning Catalog",
+    "skills": [
+      "REST API",
+      "API Design",
+      "Postman"
+    ],
+    "duration_weeks": 2,
+    "cost": 0,
+    "level": "Beginner",
+    "url": "https://example.com/course/28"
+  },
+  {
+    "id": "C029",
+    "title": "Data Structures with Java",
+    "provider": "Open Learning Catalog",
+    "skills": [
+      "Data Structures",
+      "Java",
+      "Algorithms"
+    ],
+    "duration_weeks": 5,
+    "cost": 0,
+    "level": "Beginner",
+    "url": "https://example.com/course/29"
+  },
+  {
+    "id": "C030",
+    "title": "Postman API Testing",
+    "provider": "Open Learning Catalog",
+    "skills": [
+      "Postman",
+      "REST API",
+      "API Testing"
+    ],
+    "duration_weeks": 1,
+    "cost": 0,
+    "level": "Beginner",
+    "url": "https://example.com/course/30"
+  },
+  {
+    "id": "C031",
+    "title": "Advanced Spring Boot Microservices",
+    "provider": "Open Learning Catalog",
+    "skills": [
+      "Spring Boot",
+      "Java",
+      "REST API"
+    ],
+    "duration_weeks": 5,
+    "cost": 1400,
+    "level": "Advanced",
+    "url": "https://example.com/course/31"
+  },
+  {
+    "id": "C032",
+    "title": "Java Concurrency",
+    "provider": "Open Learning Catalog",
+    "skills": [
+      "Java",
+      "Concurrency"
+    ],
+    "duration_weeks": 3,
+    "cost": 800,
+    "level": "Intermediate",
+    "url": "https://example.com/course/32"
+  },
+  {
+    "id": "C033",
+    "title": "Spring Data JPA",
+    "provider": "Open Learning Catalog",
+    "skills": [
+      "JPA",
+      "Spring Boot",
+      "SQL"
+    ],
+    "duration_weeks": 3,
+    "cost": 0,
+    "level": "Intermediate",
+    "url": "https://example.com/course/33"
+  },
+  {
+    "id": "C034",
+    "title": "Secure REST APIs",
+    "provider": "Open Learning Catalog",
+    "skills": [
+      "Spring Security",
+      "REST API",
+      "JWT"
+    ],
+    "duration_weeks": 3,
+    "cost": 0,
+    "level": "Intermediate",
+    "url": "https://example.com/course/34"
+  },
+  {
+    "id": "C035",
+    "title": "Redis with Spring Boot",
+    "provider": "Open Learning Catalog",
+    "skills": [
+      "Redis",
+      "Spring Boot",
+      "Caching"
+    ],
+    "duration_weeks": 2,
+    "cost": 0,
+    "level": "Intermediate",
+    "url": "https://example.com/course/35"
+  },
+  {
+    "id": "C036",
+    "title": "Kafka with Spring Boot",
+    "provider": "Open Learning Catalog",
+    "skills": [
+      "Kafka",
+      "Spring Boot",
+      "Messaging"
+    ],
+    "duration_weeks": 3,
+    "cost": 700,
+    "level": "Intermediate",
+    "url": "https://example.com/course/36"
+  },
+  {
+    "id": "C037",
+    "title": "Observability for APIs",
+    "provider": "Open Learning Catalog",
+    "skills": [
+      "REST API",
+      "Monitoring",
+      "Linux"
+    ],
+    "duration_weeks": 2,
+    "cost": 0,
+    "level": "Intermediate",
+    "url": "https://example.com/course/37"
+  },
+  {
+    "id": "C038",
+    "title": "Linux for Developers",
+    "provider": "Open Learning Catalog",
+    "skills": [
+      "Linux",
+      "Shell"
+    ],
+    "duration_weeks": 2,
+    "cost": 0,
+    "level": "Beginner",
+    "url": "https://example.com/course/38"
+  },
+  {
+    "id": "C039",
+    "title": "AWS for Java Developers",
+    "provider": "Open Learning Catalog",
+    "skills": [
+      "AWS",
+      "Java",
+      "Deployment"
+    ],
+    "duration_weeks": 4,
+    "cost": 1000,
+    "level": "Intermediate",
+    "url": "https://example.com/course/39"
+  },
+  {
+    "id": "C040",
+    "title": "Kubernetes & Helm",
+    "provider": "Open Learning Catalog",
+    "skills": [
+      "Kubernetes",
+      "Containers"
+    ],
+    "duration_weeks": 4,
+    "cost": 1600,
+    "level": "Advanced",
+    "url": "https://example.com/course/40"
+  },
+  {
+    "id": "C041",
+    "title": "GitHub Actions in Practice",
+    "provider": "Open Learning Catalog",
+    "skills": [
+      "CI/CD",
+      "GitHub Actions",
+      "Git"
+    ],
+    "duration_weeks": 2,
+    "cost": 0,
+    "level": "Intermediate",
+    "url": "https://example.com/course/41"
+  },
+  {
+    "id": "C042",
+    "title": "Python Automation",
+    "provider": "Open Learning Catalog",
+    "skills": [
+      "Python",
+      "Automation"
+    ],
+    "duration_weeks": 3,
+    "cost": 0,
+    "level": "Beginner",
+    "url": "https://example.com/course/42"
+  },
+  {
+    "id": "C043",
+    "title": "FastAPI + PostgreSQL",
+    "provider": "Open Learning Catalog",
+    "skills": [
+      "FastAPI",
+      "Python",
+      "PostgreSQL"
+    ],
+    "duration_weeks": 3,
+    "cost": 0,
+    "level": "Intermediate",
+    "url": "https://example.com/course/43"
+  },
+  {
+    "id": "C044",
+    "title": "SQL Query Optimization",
+    "provider": "Open Learning Catalog",
+    "skills": [
+      "SQL",
+      "PostgreSQL",
+      "Database"
+    ],
+    "duration_weeks": 2,
+    "cost": 0,
+    "level": "Intermediate",
+    "url": "https://example.com/course/44"
+  },
+  {
+    "id": "C045",
+    "title": "ETL with Python",
+    "provider": "Open Learning Catalog",
+    "skills": [
+      "ETL",
+      "Python",
+      "SQL"
+    ],
+    "duration_weeks": 3,
+    "cost": 500,
+    "level": "Intermediate",
+    "url": "https://example.com/course/45"
+  },
+  {
+    "id": "C046",
+    "title": "Kafka for Data Pipelines",
+    "provider": "Open Learning Catalog",
+    "skills": [
+      "Kafka",
+      "ETL",
+      "Event Streaming"
+    ],
+    "duration_weeks": 4,
+    "cost": 1000,
+    "level": "Intermediate",
+    "url": "https://example.com/course/46"
+  },
+  {
+    "id": "C047",
+    "title": "Spark Data Processing",
+    "provider": "Open Learning Catalog",
+    "skills": [
+      "Spark",
+      "Python",
+      "Data Engineering"
+    ],
+    "duration_weeks": 4,
+    "cost": 0,
+    "level": "Intermediate",
+    "url": "https://example.com/course/47"
+  },
+  {
+    "id": "C048",
+    "title": "React + REST Integration",
+    "provider": "Open Learning Catalog",
+    "skills": [
+      "React",
+      "REST API",
+      "JavaScript"
+    ],
+    "duration_weeks": 3,
+    "cost": 0,
+    "level": "Beginner",
+    "url": "https://example.com/course/48"
+  },
+  {
+    "id": "C049",
+    "title": "React State Management",
+    "provider": "Open Learning Catalog",
+    "skills": [
+      "React",
+      "JavaScript"
+    ],
+    "duration_weeks": 2,
+    "cost": 600,
+    "level": "Intermediate",
+    "url": "https://example.com/course/49"
+  },
+  {
+    "id": "C050",
+    "title": "Frontend Testing Basics",
+    "provider": "Open Learning Catalog",
+    "skills": [
+      "React",
+      "JavaScript",
+      "Testing"
+    ],
+    "duration_weeks": 2,
+    "cost": 0,
+    "level": "Beginner",
+    "url": "https://example.com/course/50"
+  },
+  {
+    "id": "C051",
+    "title": "Java Collections",
+    "provider": "Open Learning Catalog",
+    "skills": [
+      "Java",
+      "Collections"
+    ],
+    "duration_weeks": 2,
+    "cost": 0,
+    "level": "Beginner",
+    "url": "https://example.com/course/51"
+  },
+  {
+    "id": "C052",
+    "title": "Java Exception Handling",
+    "provider": "Open Learning Catalog",
+    "skills": [
+      "Java",
+      "OOP"
+    ],
+    "duration_weeks": 1,
+    "cost": 0,
+    "level": "Beginner",
+    "url": "https://example.com/course/52"
+  },
+  {
+    "id": "C053",
+    "title": "Algorithmic Problem Solving",
+    "provider": "Open Learning Catalog",
+    "skills": [
+      "Data Structures",
+      "Algorithms",
+      "Java"
+    ],
+    "duration_weeks": 5,
+    "cost": 0,
+    "level": "Intermediate",
+    "url": "https://example.com/course/53"
+  },
+  {
+    "id": "C054",
+    "title": "API Testing with Postman",
+    "provider": "Open Learning Catalog",
+    "skills": [
+      "Postman",
+      "API Testing",
+      "REST API"
+    ],
+    "duration_weeks": 1,
+    "cost": 0,
+    "level": "Beginner",
+    "url": "https://example.com/course/54"
+  },
+  {
+    "id": "C055",
+    "title": "Cloud Native Fundamentals",
+    "provider": "Open Learning Catalog",
+    "skills": [
+      "Docker",
+      "Kubernetes",
+      "Cloud Computing"
+    ],
+    "duration_weeks": 4,
+    "cost": 0,
+    "level": "Intermediate",
+    "url": "https://example.com/course/55"
+  },
+  {
+    "id": "C056",
+    "title": "Container Security Basics",
+    "provider": "Open Learning Catalog",
+    "skills": [
+      "Docker",
+      "Linux",
+      "Security"
+    ],
+    "duration_weeks": 2,
+    "cost": 900,
+    "level": "Intermediate",
+    "url": "https://example.com/course/56"
+  },
+  {
+    "id": "C057",
+    "title": "Infrastructure Monitoring",
+    "provider": "Open Learning Catalog",
+    "skills": [
+      "AWS",
+      "Monitoring",
+      "Linux"
+    ],
+    "duration_weeks": 3,
+    "cost": 0,
+    "level": "Intermediate",
+    "url": "https://example.com/course/57"
+  },
+  {
+    "id": "C058",
+    "title": "Terraform on AWS",
+    "provider": "Open Learning Catalog",
+    "skills": [
+      "Terraform",
+      "AWS",
+      "Infrastructure as Code"
+    ],
+    "duration_weeks": 4,
+    "cost": 1200,
+    "level": "Intermediate",
+    "url": "https://example.com/course/58"
+  },
+  {
+    "id": "C059",
+    "title": "DevOps Project Lab",
+    "provider": "Open Learning Catalog",
+    "skills": [
+      "Linux",
+      "Docker",
+      "CI/CD",
+      "AWS"
+    ],
+    "duration_weeks": 5,
+    "cost": 0,
+    "level": "Intermediate",
+    "url": "https://example.com/course/59"
+  },
+  {
+    "id": "C060",
+    "title": "Production API Engineering",
+    "provider": "Open Learning Catalog",
+    "skills": [
+      "REST API",
+      "Docker",
+      "Monitoring",
+      "Git"
+    ],
+    "duration_weeks": 4,
+    "cost": 700,
+    "level": "Intermediate",
+    "url": "https://example.com/course/60"
+  }
+]
