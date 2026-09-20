@@ -263,14 +263,7 @@ div[data-testid="stFileUploader"] {
 </style>
 """
 
-_streamlit_markdown = st.markdown
 
-def _render_markdown(content, *args, **kwargs):
-    if kwargs.get("unsafe_allow_html") and isinstance(content, str):
-        content = textwrap.dedent(content).strip()
-    return _streamlit_markdown(content, *args, **kwargs)
-
-st.markdown = _render_markdown
 
 st.markdown(CSS, unsafe_allow_html=True)
 
@@ -278,6 +271,11 @@ st.markdown(CSS, unsafe_allow_html=True)
 # ============================================================
 # Helpers
 # ============================================================
+def render_html(content):
+    st.markdown(
+        textwrap.dedent(content).strip(),
+        unsafe_allow_html=True
+    )
 def safe_text(value):
     """Convert values to display-safe HTML text."""
     return html.escape(str(value))
@@ -473,25 +471,22 @@ def render_course(category, course):
 # ============================================================
 # Hero
 # ============================================================
-st.markdown(
-    """
-    <div class="hero">
-        <div class="hero-label">AI CAREER INTELLIGENCE</div>
+render_html("""
+<div class="hero">
+    <div class="hero-label">AI CAREER INTELLIGENCE</div>
 
-        <div class="hero-title">
-            Turn your skills into<br>
-            your next career move.
-        </div>
-
-        <div class="hero-text">
-            SkillPath AI analyzes your resume, matches you with
-            relevant opportunities, identifies skill gaps, and
-            recommends a focused learning path.
-        </div>
+    <div class="hero-title">
+        Turn your skills into<br>
+        your next career move.
     </div>
-    """,
-    unsafe_allow_html=True,
-)
+
+    <div class="hero-text">
+        SkillPath AI analyzes your resume, matches you with
+        relevant opportunities, identifies skill gaps, and
+        recommends a focused learning path.
+    </div>
+</div>
+""")
 
 # ============================================================
 # Sidebar
